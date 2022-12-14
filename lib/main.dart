@@ -4,6 +4,8 @@ import 'package:hotels_mini/bloc/hotels/hotels_bloc.dart';
 import 'package:hotels_mini/repository/hotel_repository.dart';
 import 'package:hotels_mini/ui/home_screen.dart';
 
+import 'bloc/hotels/hotels_event.dart';
+import 'bloc/hotels/hotels_event.dart';
 import 'bloc/simple_bloc_observer.dart';
 
 Future<void> main() async {
@@ -23,8 +25,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider<HotelsBloc>(
-            create: (context) =>
-                HotelsBloc(hotelRepository: HotelRepository()..fetchHotels()),
+            create: (context) => HotelsBloc(hotelRepository: HotelRepository())
+              ..add(FetchHotels()),
           ),
         ],
         child: MaterialApp(
