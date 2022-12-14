@@ -152,12 +152,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Stack(children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) =>
-                    //           FullPhotoScreen(url: Hotel.image),
-                    //     ));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HotelDetailScreen(hotel: hotel),
+                        ));
                   },
                   child: hotel.gallery!.isEmpty
                       ? Image.network(

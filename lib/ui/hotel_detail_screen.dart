@@ -89,7 +89,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20.0),
                                 ),
-                                Text(
+                                const Text(
                                   "Price",
                                   style: TextStyle(
                                       fontSize: 12.0, color: Colors.grey),
@@ -99,23 +99,19 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                           ],
                         ),
                         const SizedBox(height: 30.0),
-                        Text(
+                        const Text(
                           "ADDRESS:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
                         ),
                         Text(
-                          hotel.location!.address! +
-                              " | " +
-                              hotel!.location!.latitude!.toString() +
-                              "," +
-                              hotel.location!.longitude!.toString(),
+                          hotel.location!.address!,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "CITY:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -123,11 +119,11 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           hotel.location!.city!,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "CHECK IN:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -135,11 +131,11 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           "${hotel.checkIn!.from!} - ${hotel.checkIn!.to!}",
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "CHECK OUT:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -147,11 +143,11 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           "${hotel.checkOut!.from!} - ${hotel.checkOut!.to!}",
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "PHONE:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -159,11 +155,11 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           hotel.contact!.phoneNumber!,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "EMAIL:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -171,11 +167,11 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           hotel.contact!.email!,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                         const SizedBox(height: 10.0),
-                        Text(
+                        const Text(
                           "USER RATING:",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14.0),
@@ -183,7 +179,19 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                         Text(
                           hotel.userRating.toString(),
                           textAlign: TextAlign.justify,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 14.0),
+                        ),
+                        const SizedBox(height: 10.0),
+                        const Text(
+                          "GEOCORDINATE:",
                           style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 14.0),
+                        ),
+                        Text(
+                          "${hotel.location!.latitude!} , ${hotel.location!.longitude!}",
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 14.0),
                         ),
                       ],
@@ -246,13 +254,13 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                   end: Alignment.topCenter,
                                 ),
                               ),
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 10.0, horizontal: 20.0),
                               child: Column(
                                 children: <Widget>[
                                   Text(
                                     hotel.name!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
@@ -260,7 +268,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                                   ),
                                   Text(
                                     hotel.location!.address!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
