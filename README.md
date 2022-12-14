@@ -1,6 +1,7 @@
 # hotels_mini
 
 A mini hotel booking app written with Flutter.
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/7851155/207602041-304ddc04-52bf-4ef8-8363-25ad1a73531f.gif)
 
 
 ## Getting Started
