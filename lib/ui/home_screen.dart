@@ -8,6 +8,7 @@ import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_bloc.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_state.dart';
 import 'package:hotels_mini/model/HotelModel.dart';
+import 'package:hotels_mini/ui/hotel_detail_screen.dart';
 
 import '../utilities/ui_utils.dart';
 
@@ -153,7 +154,40 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       color: Colors.white,
-                      child: RatingStars(
+                      child: Text(
+                        hotel.price.toString() + " ${hotel.currency}",
+                      ),
+                    ))
+              ]),
+              GestureDetector(
+                onTap: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HotelDetailScreen(hotel: hotel),
+                      ));
+                },
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        hotel.name!,
+                        style: const TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      Text(
+                        hotel.location!.address! + ", " + hotel.location!.city!,
+                        maxLines: 2,
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      RatingStars(
                         value: double.parse(hotel.stars.toString()),
                         onValueChanged: (v) {
                           setState(() {
@@ -182,38 +216,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             vertical: 1, horizontal: 8),
                         valueLabelMargin: const EdgeInsets.only(right: 8),
                         starOffColor: const Color(0xffe7e8ea),
-                        starColor: Colors.yellow,
-                      ),
-                    ))
-              ]),
-              GestureDetector(
-                onTap: () async {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => FullPhotoScreen(url: Hotel.image),
-                  //     ));
-                },
-                child: Container(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        hotel.name!,
-                        style: const TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        hotel.location!.address!,
-                        maxLines: 2,
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
+                        starColor: Colors.black,
+                      )
                     ],
                   ),
                 ),

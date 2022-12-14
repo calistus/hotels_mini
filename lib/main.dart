@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           title: 'Hotel Mini',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
