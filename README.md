@@ -1,6 +1,7 @@
 # hotels_mini
 
-A new Flutter project.
+A mini hotel booking app written with Flutter.
+
 
 ## Getting Started
 
