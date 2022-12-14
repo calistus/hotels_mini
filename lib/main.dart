@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_bloc.dart';
 import 'package:hotels_mini/repository/hotel_repository.dart';
 import 'package:hotels_mini/ui/home_screen.dart';
+import 'package:hotels_mini/utilities/colors_util.dart';
 
 import 'bloc/hotels/hotels_event.dart';
 import 'bloc/hotels/hotels_event.dart';
@@ -33,8 +34,9 @@ class MyApp extends StatelessWidget {
           title: 'Hotel Mini',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+              appBarTheme: AppBarTheme(
+            color: ColorsUtil.primaryColor,
+          )),
           home: const HomeScreen(),
         ));
   }

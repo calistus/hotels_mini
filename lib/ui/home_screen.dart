@@ -9,6 +9,7 @@ import 'package:hotels_mini/bloc/hotels/hotels_bloc.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_state.dart';
 import 'package:hotels_mini/model/HotelModel.dart';
 import 'package:hotels_mini/ui/hotel_detail_screen.dart';
+import 'package:hotels_mini/utilities/colors_util.dart';
 
 import '../utilities/ui_utils.dart';
 
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: <Widget>[
           const SliverAppBar(
             expandedHeight: 80.0,
-            backgroundColor: Color(0xff122620),
+            backgroundColor: ColorsUtil.primaryColor,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
