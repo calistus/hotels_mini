@@ -41,7 +41,7 @@ class HotelsBloc extends Bloc<HotelsEvent, HotelsState> {
     try {
       emit(HotelsLoading());
       List<HotelModel>? hotels = await hotelRepository.fetchHotels();
-      hotels!.sort((a, b) => a.price!.compareTo(b.price!));
+      hotels!.sort((b, a) => a.price!.compareTo(b.price!));
       emit(HotelsLoaded(hotels: hotels));
     } catch (e) {
       emit(HotelsError(e.toString()));
@@ -54,7 +54,6 @@ class HotelsBloc extends Bloc<HotelsEvent, HotelsState> {
       emit(HotelsLoading());
       List<HotelModel>? hotels = await hotelRepository.fetchHotels();
       hotels!.sort((a, b) => a.price!.compareTo(b.price!));
-      hotels.reversed;
       emit(HotelsLoaded(hotels: hotels));
     } catch (e) {
       emit(HotelsError(e.toString()));

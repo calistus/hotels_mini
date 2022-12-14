@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_bloc.dart';
+import 'package:hotels_mini/bloc/hotels/hotels_event.dart';
 import 'package:hotels_mini/bloc/hotels/hotels_state.dart';
 import 'package:hotels_mini/model/HotelModel.dart';
 import 'package:hotels_mini/ui/hotel_detail_screen.dart';
@@ -25,6 +26,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late String searchKey;
   late HotelsBloc hotelsBloc;
+  String _selectedMenu = '';
 
   @override
   void initState() {
@@ -41,11 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          const SliverAppBar(
-            expandedHeight: 80.0,
+          SliverAppBar(
+            expandedHeight: 50.0,
             backgroundColor: ColorsUtil.primaryColor,
             floating: true,
-            flexibleSpace: FlexibleSpaceBar(
+            flexibleSpace: const FlexibleSpaceBar(
               title: Text(
                 'Hotels Mini',
                 style: TextStyle(
@@ -54,6 +56,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            actions: [
+              PopupMenuButton<String>(
+                  // Callback that sets the selected popup menu item.
+                  onSelected: (String item) {
+                    switch (item) {
+                      case 'filter1':
+                        BlocProvider.of<HotelsBloc>(context)
+                            .add(SortHotelByPriceAsc());
+                        break;
+                      case 'filter2':
+                        BlocProvider.of<HotelsBloc>(context)
+                            .add(SortHotelByPriceDesc());
+                        break;
+                      case 'filter0':
+                        BlocProvider.of<HotelsBloc>(context).add(FetchHotels());
+                        break;
+                      default:
+                    }
+                  },
+                  itemBuilder: (BuildContext context) =>
+                      <PopupMenuEntry<String>>[
+                        const PopupMenuItem<String>(
+                          value: "filter1",
+                          child: Text('Sort hotels by price Ascending'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: "filter2",
+                          child: Text('Sort hotels by price Descending'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: "filter0",
+                          child: Text('Reset'),
+                        )
+                      ]),
+            ],
           ),
           const SliverToBoxAdapter(
             child: SizedBox(

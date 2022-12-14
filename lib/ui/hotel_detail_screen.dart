@@ -34,7 +34,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                 children: <Widget>[
                   buildCarousel(hotel.gallery!.isEmpty
                       ? [
-                          'https://www.royalcaribbean.com/content/dam/royal/ports/ports-of-call/asia/indonesia/bali/bali-royal-caribbean.jpg'
+                          'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png'
                         ]
                       : hotel.gallery!),
                   Container(
@@ -236,7 +236,7 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                             left: 0.0,
                             right: 0.0,
                             child: Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
                                     Color.fromARGB(200, 0, 0, 0),
